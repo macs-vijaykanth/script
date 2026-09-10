@@ -31,7 +31,7 @@
 			"wa_url": "https://ct-linux-vm2.cybertech.com/server",
 			"web_context_url": "https://macs-linux-ha.cybertech.com/server",
 			"admin_username": "siteadmin",
-			"admin_password": "CSSL#2026",
+			"admin_password": "CSSL.2026",
 			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Server_Linux_115_195440.tar.gz",
 			"authorization_file": "/home/arcgisservice/arcgis_repo/licenses/ArcGISGISServerAdvancedArcGISGISServerAdvanced_DeveloperArcGISServer_1596352_5_1.prvc",
 			"directories_root": "/mnt/datadisk/arcgisserver",
@@ -58,8 +58,8 @@
 			"hostidentifier": "ct-linux-vm2.cybertech.com",
 			"preferredidentifier": "ct-linux-vm2.cybertech.com",
 			"install_system_requirements": true,
-			"setup_options": "-f Relational,Object",
-			"types": "relational,object",
+			"setup_options": "-f Relational",
+			"types": "relational",
 			"mode": "singleInstance",
 			"backup_dir": "/mnt/datadisk/arcgisdatastore/backups",
 			"relational": {
@@ -67,10 +67,6 @@
 				"backup_location": "/mnt/datadisk/arcgisdatastore/backups/relational",
 				"pitr": "disable",
 				"enablessl": true
-			},
-			"object": {
-				"backup_type": "none",
-				"backup_location": "/mnt/datadisk/arcgisdatastore/backups/object"
 			}
 		},
 		"portal": {
