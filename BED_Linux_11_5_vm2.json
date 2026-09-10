@@ -1,0 +1,140 @@
+{
+	"java": {
+		"version": "17.0.13+11",
+		"tarball_path": "/home/arcgisservice/arcgis_repo/setups/OpenJDK17U-jdk_x64_linux_hotspot_17.0.13_11.tar.gz"
+	},
+	"tomcat": {
+		"version": "9.0.97",
+		"tarball_path": "/home/arcgisservice/arcgis_repo/setups/apache-tomcat-9.0.97.tar.gz",
+		"install_path": "/opt/tomcat_arcgis_9.0.97",
+		"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+		"keystore_type": "pkcs12",
+		"keystore_password": "123"
+	},
+	"arcgis": {
+		"version": "11.5",
+		"run_as_user": "arcgisservice",
+		"hosts": {
+			"ct-linux-vm2.cybertech.com": "172.30.51.155"
+		},
+		"configure_cloud_settings": false,
+		"cache_authorization_files": true,
+		"web_server": {
+			"webapp_dir": "/opt/tomcat_arcgis_9.0.97/webapps"
+		},
+		"server": {
+			"domain_name": "ct-linux-vm2.cybertech.com",
+			"hostname": "ct-linux-vm2.cybertech.com",
+			"install_dir": "/home/arcgisservice",
+			"private_url": "https://ct-linux-vm2.cybertech.com:6443/arcgis",
+			"url": "https://ct-linux-vm2.cybertech.com:6443/arcgis",
+			"wa_url": "https://ct-linux-vm2.cybertech.com/server",
+			"web_context_url": "https://macs-linux-ha.cybertech.com/server",
+			"admin_username": "siteadmin",
+			"admin_password": "CSSL#2026",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Server_Linux_115_195440.tar.gz",
+			"authorization_file": "/home/arcgisservice/arcgis_repo/licenses/ArcGISGISServerAdvancedArcGISGISServerAdvanced_DeveloperArcGISServer_1596352_5_1.prvc",
+			"directories_root": "/mnt/datadisk/arcgisserver",
+			"log_dir": "/mnt/logdisk/arcgisserver/logs",
+			"log_level": "INFO",
+			"enable_debug": true,
+			"config_store_type": "FILESYSTEM",
+			"config_store_connection_string": "/mnt/datadisk/arcgisserver/config-store",
+			"install_system_requirements": true,
+			"services_dir_enabled": false,
+			"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+			"keystore_password": "123",
+			"wa_name": "server",
+			"system_properties": {
+				"enableNosniffHeader": true,
+				"WebContextURL": "https://macs-linux-ha.cybertech.com/server"
+			}
+		},
+		"data_store": {
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_DataStore_Linux_115_195461.tar.gz",
+			"install_dir": "/home/arcgisservice",
+			"configure_autostart": true,
+			"data_dir": "/mnt/datadisk/arcgisdatastore/data",
+			"hostidentifier": "ct-linux-vm2.cybertech.com",
+			"preferredidentifier": "ct-linux-vm2.cybertech.com",
+			"install_system_requirements": true,
+			"setup_options": "-f Relational,Object",
+			"types": "relational,object",
+			"mode": "singleInstance",
+			"backup_dir": "/mnt/datadisk/arcgisdatastore/backups",
+			"relational": {
+				"backup_type": "fs",
+				"backup_location": "/mnt/datadisk/arcgisdatastore/backups/relational",
+				"pitr": "disable",
+				"enablessl": true
+			},
+			"object": {
+				"backup_type": "none",
+				"backup_location": "/mnt/datadisk/arcgisdatastore/backups/object"
+			}
+		},
+		"portal": {
+			"domain_name": "ct-linux-vm2.cybertech.com",
+			"hostname": "ct-linux-vm2.cybertech.com",
+			"hostidentifier": "ct-linux-vm2.cybertech.com",
+			"preferredidentifier": "ct-linux-vm2.cybertech.com",
+			"url": "https://ct-linux-vm2.cybertech.com:7443/arcgis",
+			"private_url": "https://ct-linux-vm2.cybertech.com:7443/arcgis",
+			"wa_url": "https://ct-linux-vm2.cybertech.com/portal",
+			"web_context_url": "https://macs-linux-ha.cybertech.com/portal",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/Portal_for_ArcGIS_Linux_115_195451.tar.gz",
+			"install_dir": "/home/arcgisservice",
+			"data_dir": "/mnt/datadisk/arcgisportal",
+			"admin_username": "portaladmin",
+			"admin_password": "CSSL.2026",
+			"admin_email": "vijaykanth.vajjiram@cybertech.com",
+			"admin_full_name": "Administrator",
+			"admin_description": "Initial account administrator",
+			"security_question_index": 6,
+			"security_question_answer": "abhiramananda",
+			"log_dir": "/mnt/logdisk/arcgisportal/logs",
+			"log_level": "INFO",
+			"enable_debug": true,
+			"content_store_type": "fileStore",
+			"content_store_provider": "FileSystem",
+			"content_store_connection_string": "/mnt/datadisk/arcgisportal/content",
+			"authorization_file": "/home/arcgisservice/arcgis_repo/licenses/ArcGIS_Enterprise_Portal_115_565652_20260813_1.json",
+			"authorization_file_version": "11.5",
+			"user_license_type_id": "creatorUT",
+			"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+			"keystore_password": "123",
+			"install_system_requirements": true,
+			"wa_name": "portal",
+			"system_properties": {
+				"privatePortalURL": "https://ct-linux-vm2.cybertech.com:7443/arcgis",
+				"WebContextURL": "https://macs-linux-ha.cybertech.com/portal",
+				"enablePrintService": false,
+				"enableRssService": false,
+				"enableKmlService": false
+			}
+		},
+		"webstyles": {
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/Portal_for_ArcGIS_Web_Styles_Linux_115_195200.tar.gz"
+		},
+		"web_adaptor": {
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Web_Adaptor_Java_Linux_115_195462.tar.gz",
+			"install_dir": "/home/arcgisservice",
+			"admin_access": true,
+			"reindex_portal_content": false
+		}
+	},
+	"run_list": [
+		"recipe[arcgis-enterprise::system]",
+		"recipe[arcgis-enterprise::hosts]",
+		"recipe[esri-tomcat::openjdk]",
+		"recipe[esri-tomcat]",
+		"recipe[arcgis-enterprise::install_portal]",
+		"recipe[arcgis-enterprise::portal]",
+		"recipe[arcgis-enterprise::webstyles]",
+		"recipe[arcgis-enterprise::portal_wa]",
+		"recipe[arcgis-enterprise::server]",
+		"recipe[arcgis-enterprise::server_wa]",
+		"recipe[arcgis-enterprise::datastore]",
+		"recipe[arcgis-enterprise::federation]"
+	]
+}
