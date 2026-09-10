@@ -1,0 +1,102 @@
+{
+	"java": {
+		"version": "17.0.13+11",
+		"tarball_path": "/home/arcgisservice/arcgis_repo/setups/OpenJDK17U-jdk_x64_linux_hotspot_17.0.13_11.tar.gz"
+	},
+	"tomcat": {
+		"version": "9.0.97",
+		"tarball_path": "/home/arcgisservice/arcgis_repo/setups/apache-tomcat-9.0.97.tar.gz",
+		"install_path": "/opt/tomcat_arcgis_9.0.97",
+		"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+		"keystore_type": "pkcs12",
+		"keystore_password": "123"
+	},
+	"arcgis": {
+		"version": "11.5",
+		"run_as_user": "arcgisservice",
+		"cache_authorization_files": true,
+		"configure_cloud_settings": false,
+		"hosts": {
+			"ct-linux-vm2.cybertech.com": "172.30.51.155",
+			"ct-linux-vm15.cybertech.com": "172.30.51.156"
+		},
+		"web_server": {
+			"webapp_dir": "/opt/tomcat_arcgis_9.0.97/webapps"
+		},
+		"server": {
+			"domain_name": "ct-linux-vm15.cybertech.com",
+			"hostname": "ct-linux-vm15.cybertech.com",
+			"install_dir": "/home/arcgisservice",
+			"url": "https://ct-linux-vm15.cybertech.com:6443/arcgis",
+			"private_url": "https://ct-linux-vm15.cybertech.com:6443/arcgis",
+			"primary_server_url": "https://ct-linux-vm2.cybertech.com:6443/arcgis",
+			"wa_url": "https://ct-linux-vm15.cybertech.com/server",
+			"web_context_url": "https://macs-linux-ha.cybertech.com/server",
+			"admin_username": "siteadmin",
+			"admin_password": "CSSL.2026",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Server_Linux_115_195440.tar.gz",
+			"log_dir": "/mnt/logdisk/arcgisserver/logs",
+			"enable_debug": false,
+			"authorization_file": "/home/arcgisservice/arcgis_repo/licenses/ArcGISGISServerAdvancedArcGISGISServerAdvanced_DeveloperArcGISServer_1596352_5_1.prvc",
+			"pull_license": false,
+			"install_system_requirements": true,
+			"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+			"keystore_password": "123",
+			"wa_name": "server"
+		},
+		"data_store": {
+			"install_dir": "/home/arcgisservice",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_DataStore_Linux_115_195461.tar.gz",
+			"setup_options": "-f Relational",
+			"data_dir": "/mnt/datadisk/arcgisdatastore/data",
+			"types": "relational",
+			"mode": "singleInstance",
+			"hostidentifier": "ct-linux-vm15.cybertech.com",
+			"preferredidentifier": "ct-linux-vm15.cybertech.com",
+			"install_system_requirements": true
+		},
+		"portal": {
+			"domain_name": "ct-linux-vm15.cybertech.com",
+			"hostname": "ct-linux-vm15.cybertech.com",
+			"install_dir": "/home/arcgisservice",
+			"url": "https://ct-linux-vm15.cybertech.com:7443/arcgis",
+			"private_url": "https://ct-linux-vm15.cybertech.com:7443/arcgis",
+			"primary_machine_url": "https://ct-linux-vm2.cybertech.com:7443/arcgis",
+			"wa_url": "https://ct-linux-vm15.cybertech.com/portal",
+			"web_context_url": "https://macs-linux-ha.cybertech.com/portal",
+			"admin_username": "portaladmin",
+			"admin_password": "CSSL.2026",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/Portal_for_ArcGIS_Linux_115_195451.tar.gz",
+			"data_dir": "/mnt/datadisk/arcgisportal",
+			"log_dir": "/mnt/logdisk/arcgisportal/logs",
+			"install_system_requirements": true,
+			"keystore_file": "/home/arcgisservice/arcgis_repo/ssl/cybertech_com_26.pfx",
+			"keystore_password": "123",
+			"wa_name": "portal",
+			"root_cert": "",
+			"root_cert_alias": "rootcert"
+		},
+		"webstyles": {
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/Portal_for_ArcGIS_Web_Styles_Linux_115_195200.tar.gz"
+		},
+		"web_adaptor": {
+			"install_dir": "/home/arcgisservice",
+			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Web_Adaptor_Java_Linux_115_195462.tar.gz",
+			"admin_access": true,
+			"reindex_portal_content": false
+		}
+	},
+	"run_list": [
+		"recipe[arcgis-enterprise::system]",
+		"recipe[arcgis-enterprise::hosts]",
+		"recipe[esri-tomcat::openjdk]",
+		"recipe[esri-tomcat]",
+		"recipe[arcgis-enterprise::install_portal]",
+		"recipe[arcgis-enterprise::webstyles]",
+		"recipe[arcgis-enterprise::portal_standby]",
+		"recipe[arcgis-enterprise::portal_wa]",
+		"recipe[arcgis-enterprise::server_node]",
+		"recipe[arcgis-enterprise::server_wa]",
+		"recipe[arcgis-enterprise::datastore_standby]"
+	]
+}
