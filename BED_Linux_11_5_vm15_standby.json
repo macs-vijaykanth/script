@@ -36,6 +36,8 @@
 			"admin_password": "CSSL.2026",
 			"setup_archive": "/home/arcgisservice/arcgis_repo/setups/ArcGIS_Server_Linux_115_195440.tar.gz",
 			"log_dir": "/mnt/logdisk/arcgisserver/logs",
+			"directories_root": "/mnt/datadisk/arcgisserver",
+			"config_store_type": "FILESYSTEM",
 			"enable_debug": false,
 			"authorization_file": "/home/arcgisservice/arcgis_repo/licenses/ArcGISGISServerAdvancedArcGISGISServerAdvanced_DeveloperArcGISServer_1596352_5_1.prvc",
 			"pull_license": false,
