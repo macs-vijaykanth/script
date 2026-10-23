@@ -1,0 +1,30 @@
+# GDB Maintenance - configuration
+# This is the only file to edit for a new implementation.
+# REQUIRED = must have a value.  OPTIONAL = can be left out.
+# Fill in the values on the client server only - never commit real credentials.
+# This file contains the SMTP password once filled in: restrict access to it on the server.
+#
+# Database credentials are NOT stored here. They are typed in once when setup.bat runs,
+# and saved only in the .sde connection files in the Databases folder.
+# Existing .sde files can be copied there instead of running setup.bat:
+#   Databases\<DatabaseName>\Admin\admin_connection.sde   (geodatabase administrator - without it compress does not run)
+#   Databases\<DatabaseName>\DataOwners\<anyname>.sde     (data owners)
+# Each database needs at least one of the two.
+# Each .sde file must have "Save username and password" turned on.
+
+# REQUIRED - client name. Used in email subjects/bodies, log messages and log file names.
+# The maintenance run will not start while this is empty.
+client_name: ""
+
+# OPTIONAL - log files in the Logs folder older than this many days are deleted (default 90)
+log_retention_days: 90
+
+# ---------- Email ----------
+# smtp_username and smtp_password are Base64 encoded (see README). smtp_username is also the sender address.
+# Port 587 uses STARTTLS, port 465 uses SSL.
+email:
+  smtp_username: "bWFjc25vdGlmaWNhdGlvbnNAY3liZXJ0ZWNoLmNvbQ=="   # REQUIRED
+  smtp_password: "QVg1QDg4SDY="   # OPTIONAL - leave empty for an internal relay that needs no login
+  smtp_server: "smtp.office365.com"   # REQUIRED
+  smtp_port: "587"                    # REQUIRED
+  email_recipients: ["MACSOperate@cybertech.com"]   # REQUIRED - list, or "a@x.com; b@y.com"
